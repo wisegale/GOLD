@@ -53,7 +53,7 @@ def main():
             price = get_floor_price()
             now_local = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             print(f"{now_local} 目前的地板价是：{price}")
-            if last_price is not None and (last_price - price) > 30:
+            if last_price is not None and (last_price - price) > -1:
                 send_alert(price)
             last_price = price
         except Exception as exc:
@@ -63,3 +63,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
